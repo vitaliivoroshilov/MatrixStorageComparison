@@ -130,7 +130,6 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CompressedRowMatrix.h" />
     <ClInclude Include="CoordinateMatrix.h" />
     <ClInclude Include="OneArrayMatrix.h" />
   </ItemGroup>

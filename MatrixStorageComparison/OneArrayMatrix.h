@@ -6,30 +6,30 @@ using namespace std;
 class OneArrayMatrix
 {
 public:
-    int* arr;
-    int n;
+    int* array;
+    int n, m;
 
-    OneArrayMatrix(int size) : n(size)
+    OneArrayMatrix(int _n, int _m) : n(_n), m(_m)
     {
-        arr = new int[n * n];
+        array = new int[n * m];
         for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
-                arr[i * n + j] = 0;
+            for (int j = 0; j < m; j++)
+                array[i * m + j] = 0;
     }
 
-    OneArrayMatrix(OneArrayMatrix& matr) : n(matr.n)
+    OneArrayMatrix(OneArrayMatrix& matr) : n(matr.n), m(matr.m)
     {
-        arr = new int[n * n];
+        array = new int[n * m];
         for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
-                arr[i * n + j] = matr.arr[i * n + j];
+            for (int j = 0; j < m; j++)
+                array[i * m + j] = matr.array[i * m + j];
     }
 
     friend istream& operator>>(istream& istr, OneArrayMatrix& matr)
     {
         for (int i = 0; i < matr.n; i++)
-            for (int j = 0; j < matr.n; j++)
-                istr >> matr.arr[i * matr.n + j];
+            for (int j = 0; j < matr.m; j++)
+                istr >> matr.array[i * matr.m + j];
         return istr;
     }
 
@@ -37,8 +37,8 @@ public:
     {
         for (int i = 0; i < matr.n; i++)
         {
-            for (int j = 0; j < matr.n; j++)
-                ostr << matr.arr[i * matr.n + j] << " ";
+            for (int j = 0; j < matr.m; j++)
+                ostr << matr.array[i * matr.m + j] << " ";
             ostr << endl;
         }
         ostr << endl;
@@ -47,11 +47,11 @@ public:
 
     OneArrayMatrix OneArrayMult(OneArrayMatrix& matr)
     {
-        OneArrayMatrix res(n);
+        OneArrayMatrix res(n, matr.m);
         for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
-                for (int k = 0; k < n; k++)
-                    res.arr[i * n + j] += arr[i * n + k] * matr.arr[k * n + j];
+            for (int j = 0; j < matr.m; j++)
+                for (int k = 0; k < m; k++)
+                    res.array[i * matr.m + j] += array[i * m + k] * matr.array[k * matr.m + j];
         return res;
     }
 };
