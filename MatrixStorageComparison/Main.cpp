@@ -5,7 +5,7 @@ int main()
 {
 	int n1, m1, n2, m2;
 
-	cout << "n1: ";
+	/*cout << "n1: ";
 	cin >> n1; 
 	cout << "m1: ";
 	cin >> m1;
@@ -22,7 +22,25 @@ int main()
 	OneArrayMatrix oneArrMatr2(n2, m2);
 	cout << "Matrix2 " << n2 << "*" << m2 << ":" << endl;
 	cin >> oneArrMatr2;
-	cout << endl;
+	cout << endl;*/
+
+
+	n1 = 1000;
+	m1 = n2 = 500;
+	m2 = 1000;
+	
+	OneArrayMatrix oneArrMatr1(n1, m1);
+	for (int i = 0; i < n1; i++)
+		for (int j = 0; j < m1; j++)
+			if (i == j)
+				oneArrMatr1.array[i * m1 + j] = i + j;
+
+	OneArrayMatrix oneArrMatr2(n2, m2);
+	for (int i = 0; i < n2; i++)
+		for (int j = 0; j < m2; j++)
+			if (i == j)
+				oneArrMatr2.array[i * m2 + j] = i - j;
+
 
 	OneArrayMatrix oneArrRes(n1, m2);
 
@@ -31,8 +49,8 @@ int main()
 	auto end1 = chrono::high_resolution_clock::now();
 	chrono::duration<double> oneArrDuration = end1 - start1;
 
-	cout << "OneArrayMult:" << endl << oneArrRes;
-	cout << "duration: " << oneArrDuration.count() << " sec" << endl << endl;
+	//cout << "OneArrayMult:" << endl << oneArrRes;
+	cout << "OneArrayMult duration: " << oneArrDuration.count() << " sec" << endl << endl;
 
 
 	CoordinateMatrix coordMatr1(oneArrMatr1), coordMatr2(oneArrMatr2);
@@ -43,8 +61,13 @@ int main()
 	auto end2 = chrono::high_resolution_clock::now();
 	chrono::duration<double> coordDuration = end2 - start2;
 
-	cout << "CoordMult:" << endl << coordRes;
-	cout << "duration: " << coordDuration.count() << " sec" << endl;
+	//cout << "CoordMult:" << endl << coordRes;
+	cout << "CoordMult duration: " << coordDuration.count() << " sec" << endl << endl;
+
+	if (oneArrDuration.count() > coordDuration.count())
+		cout << "CoordMult is " << oneArrDuration.count() / coordDuration.count() << " times faster than oneArrayMult" << endl;
+	else
+		cout << "OneArrayMult is " << coordDuration.count() / oneArrDuration.count() << " times faster than oneArrayMult" << endl;
 
 	return 0;
 }
