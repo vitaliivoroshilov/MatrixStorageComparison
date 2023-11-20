@@ -139,6 +139,9 @@
     <ClInclude Include="OneArrayMatrix.h" />
     <ClInclude Include="TestMultDuration.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Results.md" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

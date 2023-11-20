@@ -15,8 +15,6 @@ OneArrayMatrix generateSparseMatrix(int n, int m, int percent)
 
 double testOneArrayMult(OneArrayMatrix& matr1, OneArrayMatrix& matr2)
 {
-	OneArrayMatrix matrRes(matr1.n, matr2.m);
-
 	auto start = chrono::high_resolution_clock::now();
 	matr1.OneArrayMult(matr2);
 	auto end = chrono::high_resolution_clock::now();
@@ -27,8 +25,6 @@ double testOneArrayMult(OneArrayMatrix& matr1, OneArrayMatrix& matr2)
 
 double testCoordMult(CoordinateMatrix& matr1, CoordinateMatrix& matr2)
 {
-	CoordinateMatrix matrRes(matr1.n, matr2.m);
-
 	auto start = chrono::high_resolution_clock::now();
 	matr1.CoordMult(matr2);
 	auto end = chrono::high_resolution_clock::now();
