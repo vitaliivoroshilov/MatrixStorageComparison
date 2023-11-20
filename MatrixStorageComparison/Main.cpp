@@ -4,8 +4,8 @@
 int main()
 {
 	int n1, m1, n2, m2;
-	n1 = m1 = n2 = m2 = 1000;
-	int  percent = 50;
+	n1 = m1 = n2 = m2 = 100;
+	int  percent = 1;
 
 	OneArrayMatrix oneArrMatr1(n1, m1);
 	oneArrMatr1 = generateSparseMatrix(n1, m1, percent);

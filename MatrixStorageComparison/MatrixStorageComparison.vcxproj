@@ -142,6 +142,9 @@
   <ItemGroup>
     <None Include="Results.md" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Results.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
