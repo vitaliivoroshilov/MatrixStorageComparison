@@ -46,11 +46,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Results.md">
-      <Filter>Файлы ресурсов</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="Results.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
